@@ -1,0 +1,27 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "\"This is a hello world chat bot\"",
+  "main": "app3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glicata/helloworld.git"
+  },
+  "keywords": [
+    "chat",
+    "bot"
+  ],
+  "author": "Giuseppe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glicata/helloworld/issues"
+  },
+  "homepage": "https://github.com/glicata/helloworld#readme",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "restify": "^4.3.0"
+  }
+}
