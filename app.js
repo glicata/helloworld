@@ -17,21 +17,4 @@ server.post('/api/messages', connector.listen());
 // Create bot dialogs
 bot.dialog('/', function (session) {
     session.send("Hello World");
-    var bot = new builder.TextBot();
-    bot.add('/', function (session) {
-        if (!session.userData.name) {
-            session.beginDialog('/profile');
-        } else {
-            session.send('Hello %s!', session.userData.name);
-        }
-    });
-    bot.add('/profile', [
-        function (session) {
-            builder.Prompts.text(session, 'Hi! What is your name?');
-        },
-        function (session, results) {
-            session.userData.name = results.response;
-            session.endDialog();
-        }
-    ]);
 });
