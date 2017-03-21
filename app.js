@@ -100,11 +100,41 @@ bot.dialog('/', new builder.IntentDialog()
 
 */
 
+
+
+/*
+
 bot.dialog('/', [
     function (session) {
             session.send("The weather for wedensday is: ... ");
         }
     ]
 )
+*/
 
+
+
+bot.dialog('/', [
+    function (session) {
+        session.beginDialog('/askName');
+    },
+    function (session) {
+        session.beginDialog('/askLname');
+    },
+    function (session, results) {
+        session.send('Hello %s!', results.response);
+    }
+]);
+
+bot.dialog('/askName', [
+    function (session) {
+        builder.Prompts.text(session, 'Hi! What is your name?');
+    }
+]);
+
+bot.dialog('/askLname', [
+    function (session) {
+        builder.Prompts.text(session, 'What is your last name?');
+    }
+]);
 
