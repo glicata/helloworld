@@ -15,12 +15,12 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 
-/*/ Create bot dialogs
+// Create bot dialogs
 bot.dialog('/', function (session) {
     session.send("Hello RightAnswers");
 });
 
-
+/*
 
 
 
@@ -138,7 +138,8 @@ bot.dialog('/askLname', [
     }
 ]);
 
-*/
+
+
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/ensureProfile', session.userData.profile);
@@ -186,3 +187,4 @@ bot.dialog('/delete', (session) => {
 
 
 
+*/
