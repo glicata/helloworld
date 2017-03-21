@@ -88,10 +88,10 @@ bot.dialog('/', new builder.IntentDialog()
         session.send("Hi there! Ask me what the weather is like today!");
     })
     .matches(/^What's the weather like today?/i, function (session) {
-        session.send("The weather in Edison today is overcast with a high of 50'F. The Skies will clear by this afternoon");
+        session.send("The weather in Edison today is overcast with a high of 50'F. The Skies will clear by this afternoon. www.weather.com");
     })
     .matches(/^weather/ || /^tomorrow/i, function (session) {
-        session.send("The weather for tomorrow looks sunny with a high of 70'F.")
+        session.send("The weather for tomorrow looks sunny with a high of 70'F. ")
     })
     .onDefault(function (session) {
         session.send("I didn't understand. Say hello to me!");
