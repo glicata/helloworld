@@ -20,7 +20,7 @@ bot.dialog('/', function (session) {
     session.send("Hello RightAnswers");
 });
 
-*/
+
 
 
 
@@ -36,11 +36,11 @@ bot.dialog('/', [
 ]);
 
 
+*/
 
 
 
 
-/*
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/ensureProfile', session.userData.profile);
@@ -77,7 +77,7 @@ bot.dialog('/ensureProfile', [
     }
 ]);
 
-*/
+
 
 
 
