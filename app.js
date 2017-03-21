@@ -101,11 +101,10 @@ bot.dialog('/', new builder.IntentDialog()
 */
 
 bot.dialog('/', [
-    function (session, results) {
-        if (results.response.toLowerCase().includes("wednesdays weather")) {
+    function (session) {
             session.send("The weather for wedensday is: ... ");
         }
-    }]
+    ]
 )
 
 
