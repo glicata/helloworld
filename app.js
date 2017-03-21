@@ -39,7 +39,7 @@ bot.dialog('/', [
 */
 
 
-
+/*
 
 bot.dialog('/', [
     function (session) {
@@ -79,10 +79,10 @@ bot.dialog('/ensureProfile', [
 
 
 
+*/
 
 
 
-/*
 bot.dialog('/', new builder.IntentDialog()
     .matches(/^hello/i, function (session) {
         session.send("Hi there! Ask me what the weather is like today!");
@@ -98,7 +98,7 @@ bot.dialog('/', new builder.IntentDialog()
         session.send("I didn't understand. Say hello to me!");
         }));
 
-*/
+
 
 
 
