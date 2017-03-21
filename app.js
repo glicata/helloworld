@@ -82,7 +82,7 @@ bot.dialog('/ensureProfile', [
 
 
 
-
+/*
 bot.dialog('/', new builder.IntentDialog()
     .matches(/^hello/i, function (session) {
         session.send("Hi there! Ask me what the weather is like today!");
@@ -93,6 +93,17 @@ bot.dialog('/', new builder.IntentDialog()
     .matches(/^weather/ || /^tomorrow/i, function (session) {
         session.send("The weather for tomorrow looks sunny with a high of 70'F. ")
     })
+    
     .onDefault(function (session) {
         session.send("I didn't understand. Say hello to me!");
-    }));
+        }));
+
+*/
+
+bot.dialog('/', new builder.IntentDialog(),
+function (session, results) {
+        if (results.response.toLowerCase().includes("wednesdays weather")) {
+            session.send("The weather for wedensday is: ... ");
+        }
+    }
+)
