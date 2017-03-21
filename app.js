@@ -38,6 +38,9 @@ bot.dialog('/', [
 
 
 
+
+
+/*
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/ensureProfile', session.userData.profile);
@@ -74,4 +77,16 @@ bot.dialog('/ensureProfile', [
     }
 ]);
 
+*/
 
+
+
+
+
+bot.dialog('/', new builder.IntentDialog()
+    .matches(/^hello/i, function (session) {
+        session.send("Hi there!");
+    })
+    .onDefault(function (session) {
+        session.send("I didn't understand. Say hello to me!");
+    }));
