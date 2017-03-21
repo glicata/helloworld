@@ -15,11 +15,11 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 
-/*/ Create bot dialogs
+ Create bot dialogs
 bot.dialog('/', function (session) {
     session.send("Hello World");
 });
-
+/*
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/askName');
@@ -71,7 +71,7 @@ bot.dialog('/ensureProfile', [
         session.endDialogWithResult({ response: session.dialogData.profile });
     }
 ]);
-*/
+
 bot.dialog('/receipt', [
     function (session) {
         session.send("You can send a receipts for facebook using Bot Builders ReceiptCard...");
@@ -149,3 +149,4 @@ bot.dialog('/receipt', [
         session.endDialog(msg);
     }
 ]);
+*/
