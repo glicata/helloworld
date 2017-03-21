@@ -154,7 +154,7 @@ bot.dialog('/', [
 bot.dialog('/ensureProfile', [
     function (session, args, next) {
         session.dialogData.profile = args || {};
-        if (!session.dialogData.profile.name) {
+        if (!session.dialogData.profile.fname) {
             builder.Prompts.text(session, "What's your first name?");
         } else {
             next();
@@ -164,7 +164,7 @@ bot.dialog('/ensureProfile', [
         if (results.response) {
             session.dialogData.profile.fname = results.response;
         }
-        if (!session.dialogData.profile.company) {
+        if (!session.dialogData.profile.lname) {
             builder.Prompts.text(session, "What is your last name?");
         } else {
             next();
