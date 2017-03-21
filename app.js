@@ -175,7 +175,7 @@ bot.dialog('/ensureProfile', [
         session.endDialogWithResult({ response: session.dialogData.profile });
     }
 ]);
-
+// the above sesion dialog can be wiped out by using this delete session dialog.
 bot.dialog('/delete', (session) => {
     delete session.userData
     session.endDialog('Everything has been wiped out')
@@ -183,7 +183,6 @@ bot.dialog('/delete', (session) => {
 })
     .triggerAction({
         matches: /delete all/i,
-        confirmPrompt: "This will wipe everything out. Are you sure?"
     });
 
 
