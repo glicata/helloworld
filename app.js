@@ -140,41 +140,6 @@ bot.dialog('/askLname', [
 
 */
 
-bot.dialog('/', [
-    function (session) {
-        session.beginDialog('/ensureProfile', session.userData.profile);
-    },
-    function (session, results) {
-        session.userData.profile = results.profile;
-        session.send('Hello %s!', session.userData.profile.name);
-    }
-]);
-bot.dialog('/ensureProfile', [
-    function (session, args, next) {
-        session.dialogData.profile = args || {};
-        if (!args.profile.name) {
-            builder.Prompts.text(session, "Hi! What is your First name?");
-        } else {
-            next();
-        }
-    },
-    function (session, results, next) {
-        if (results.response) {
-            session.dialogData.profile.name = results.response;
-        }
-        if (!args.profile.email) {
-            builder.Prompts.text(session, "What's your last name?");
-        } else {
-            next();
-        }
-    },
-    function (session, results) {
-        if (results.response) {
-            session.dialogData.profile.email = results.response;
-        }
-        session.endDialogWithResults({ repsonse: session.dialogData.profile })
-    }
-]);
 // the above sesion dialog can be wiped out by using this delete session dialog.
 bot.dialog('/delete', (session) => {
     delete session.userData
