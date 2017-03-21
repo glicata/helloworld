@@ -146,14 +146,14 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('Hello %(name)s! I love %(company)s!', session.userData.profile);
+        session.send('Hello %(name) %(lastname)!', session.userData.profile);
     }
 ]);
 bot.dialog('/ensureProfile', [
     function (session, args, next) {
         session.dialogData.profile = args || {};
         if (!session.dialogData.profile.name) {
-            builder.Prompts.text(session, "What's your name?");
+            builder.Prompts.text(session, "What's your first name?");
         } else {
             next();
         }
@@ -162,8 +162,8 @@ bot.dialog('/ensureProfile', [
         if (results.response) {
             session.dialogData.profile.name = results.response;
         }
-        if (!session.dialogData.profile.company) {
-            builder.Prompts.text(session, "What company do you work for?");
+        if (!session.dialogData.profile.lastname) {
+            builder.Prompts.text(session, "What is your last name");
         } else {
             next();
         }
