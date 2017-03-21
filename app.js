@@ -37,7 +37,7 @@ bot.dialog('/askName', [
         session.endDialogWithResult(results);
     }
 ]);
-/*
+
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/ensureProfile', session.userData.profile);
@@ -73,7 +73,7 @@ bot.dialog('/ensureProfile', [
         session.endDialogWithResult({ response: session.dialogData.profile });
     }
 ]);
-
+/*
 bot.dialog('/receipt', [
     function (session) {
         session.send("You can send a receipts for facebook using Bot Builders ReceiptCard...");
