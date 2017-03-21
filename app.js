@@ -15,11 +15,11 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 
-/* Create bot dialogs
+ Create bot dialogs
 bot.dialog('/', function (session) {
     session.send("Hello World");
 });
-*/
+/*
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/askName');
