@@ -15,17 +15,17 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 
-// Create bot dialogs
+/*/ Create bot dialogs
 bot.dialog('/', function (session) {
     session.send("Hello RightAnswers");
 });
 
-
+*/
 
 
 
 //
-/*
+
 bot.dialog('/', [
     function (session) {
         builder.Prompts.text(session, 'Hi! What is your name?');
@@ -34,7 +34,7 @@ bot.dialog('/', [
         session.send('Hello %s!', results.response);
     }
 ]);
-*/
+
 
 
 
