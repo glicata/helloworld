@@ -28,7 +28,7 @@ bot.dialog('/', [
         session.send('Hello %s!', results.response);
     }
 ]);
-/*
+
 bot.dialog('/askName', [
     function (session) {
         builder.Prompts.text(session, 'Hi! What is your name?');
@@ -37,6 +37,7 @@ bot.dialog('/askName', [
         session.endDialogWithResult(results);
     }
 ]);
+/*
 bot.dialog('/', [
     function (session) {
         session.beginDialog('/ensureProfile', session.userData.profile);
