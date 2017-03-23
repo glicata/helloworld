@@ -41,9 +41,9 @@ intents.matches('forgot password', [
         session.dialogData.reset = reset;
 
         // get the users information 'verify user'
-
+        var firstName = ["Giuseppe", "Licata"];
         if (!reset.firstName) {
-            builder.Prompts.text(session, "What is your first name?");
+            builder.Prompts.choice(session, "What is your first name?", firstName);
         } else {
             next();
         }
