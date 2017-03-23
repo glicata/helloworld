@@ -195,7 +195,7 @@ bot.dialog('/profile', [
     //function (session, results) {
      //   session.userData.name = results.response;
       //  session.endDialog();
-    },
+    //},
     function (session) {
         builder.Prompts.text(session, 'And whats your last name?');
     },
