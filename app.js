@@ -215,9 +215,9 @@ bot.dialog('/ensureProfile', [
         }
         if (!session.dialogData.profile.middleinitial) {
             builder.Prompts.text(session, "What is your middle initial?");
-        } else {
-            next();
-        }
+        }// else {
+         //   next();
+        //}
     },
     function (session, results) {
         if (results.response) {
