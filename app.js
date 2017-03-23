@@ -24,7 +24,7 @@ intents.matches('forgot password', [
   
 ]);
 
-
+intents.onDefault(builder.DialogAction.send("I am sorry. I didn't understand you."));
 /*
 // Create bot dialogs
 bot.dialog('/', function (session) {
