@@ -32,21 +32,33 @@ intents.matches('forgot password', [
 
         console.log('ENTITIES', firstName, lastName, fullName, accountNumber);
 
-        var reset = {
+        var verifyUser = {
             firstName: firstName ? firstName.entity : null,
             lastName: lastName ? lastName.entity : null,
             fullName: fullName ? fullName.entity : null,
             accountNumber: accountNumber ? accountNumber.entity : null
         }
-        session.dialogData.reset = reset;
+        session.dialogData.verifyUser = verifyUser;
 
         // get the users information 'verify user'
-        var firstName = ["Giuseppe", "Licata"];
-        if (!reset.firstName) {
-            builder.Prompts.choice(session, "What is your first name?", firstName);
+        if (!verifyUser.firstName) {
+            builder.Prompts.text(session, "What is your first name?");
         } else {
             next();
         }
+    },
+
+    function (session, results, next) {
+        console.log('third block');
+        var verifyUser = session.dialogData.verifyUser;
+        if (results.response) {
+            console.log('RESPONSE', results);
+            verifyUser.firstName = results.response.entity;
+        }
+        session.dialog.verifyUser = verifyUser;
+
+
+
     }
    
 ]);
