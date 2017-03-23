@@ -181,7 +181,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('Hello %(name)s! I love %(lastname)s!', session.userData.profile);
+        session.send('Hello %(name) %(lastname)', session.userData.profile);
     }
 ]);
 bot.dialog('/ensureProfile', [
@@ -198,7 +198,7 @@ bot.dialog('/ensureProfile', [
             session.dialogData.profile.name = results.response;
         }
         if (!session.dialogData.profile.lastname) {
-            builder.Prompts.text(session, "What lastname do you work for?");
+            builder.Prompts.text(session, "What is your last name?");
         } else {
             next();
         }
