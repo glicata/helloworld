@@ -141,6 +141,9 @@ bot.dialog('/askLname', [
 */
 // the above sesion dialog can be wiped out by using this delete session dialog.
 
+
+
+/*
 var salesData = {
     "west": {
         units: 200,
@@ -169,8 +172,38 @@ bot.dialog('/', [
         }
     }
 ]);
+*/
 
 
+bot.dialog('/', [
+    function (session, args, next) {
+        if (!session.userData.name) {
+            session.beginDialog('/profile');
+        } else {
+            next();
+        }
+    },
+    function (session, results) {
+        session.send('Hello %s %s!', session.userData.name);
+    }
+]);
+
+bot.dialog('/profile', [
+    function (session) {
+        builder.Prompts.text(session, 'Hi! What is your name?');
+    },
+    function (session, results) {
+        session.userData.name = results.response;
+       // session.endDialog();
+    },
+    function (session) {
+        builder.Prompts.text(session, 'And whats your last name?');
+    },
+    function (session, results) {
+        session.userData.name = results.response;
+        session.endDialog();
+    }
+]);
 
 
 
