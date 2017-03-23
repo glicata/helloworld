@@ -184,7 +184,7 @@ bot.dialog('/', [
         }
     },
     function (session, results) {
-        session.send('Hello %s %(lname)!', session.userData.name);
+        session.send('Hello %(name) %(lname)!', session.userData.name);
     }
 ]);
 
@@ -192,10 +192,10 @@ bot.dialog('/profile', [
     function (session) {
         builder.Prompts.text(session, 'Hi! What is your name?');
     },
-    //function (session, results) {
-     //   session.userData.name = results.response;
-      //  session.endDialog();
-    //},
+    function (session, results) {
+        session.userData.name = results.response;
+       session.endDialog();
+    },
     function (session) {
         builder.Prompts.text(session, 'And whats your last name?');
     },
