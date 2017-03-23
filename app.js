@@ -211,7 +211,7 @@ bot.dialog('/ensureProfile', [
     },
     function (session, results, next) {
         if (results.response) {
-            session.dialogData.profile.lastname = results.response;
+            session.dialogData.profile.name = results.response;
         }
         if (!session.dialogData.profile.middleinitial) {
             builder.Prompts.text(session, "What is your middle initial?");
