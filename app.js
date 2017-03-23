@@ -14,7 +14,7 @@ var connector = new builder.ChatConnector
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
-var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/9eb8032f-bf57-4d9e-99ec-6ea77dfd9033?subscription-key=44d828d6bdfa4fcba82c3a02009df8b5a&verbose=true';
+var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/cdbf409a-dbd6-4ab7-ba0a-f5f980384eaa?subscription-key=44d828d6bdfa4fcba82c3a02009df8b5&verbose=true';
 //var model = '<your models url>';
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
