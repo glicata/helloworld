@@ -148,7 +148,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('Hello %(fname) %(lname)!', session.userData.profile);
+        session.send('Hello %(fname), %(lname)!', session.userData.profile);
     }
 ]);
 bot.dialog('/ensureProfile', [
