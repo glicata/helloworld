@@ -22,7 +22,12 @@ bot.dialog('/', intents);
 
 intents.matches('forgot password', [
    
-        session.send("Hello RightAnswers");
+    function (session, args, next) {
+        console.log(args);
+
+        var firstName = builder.EntityRecognizer.findEntity(args.entities, 'firstName');
+        var lastName = builder.EntityRecognizer.findEntity(args.entities, 'lastName')
+    }
    
 ]);
 
