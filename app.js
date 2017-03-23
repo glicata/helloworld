@@ -26,7 +26,27 @@ intents.matches('forgot password', [
         console.log(args);
 
         var firstName = builder.EntityRecognizer.findEntity(args.entities, 'firstName');
-        var lastName = builder.EntityRecognizer.findEntity(args.entities, 'lastName')
+        var lastName = builder.EntityRecognizer.findEntity(args.entities, 'lastName');
+        var fullName = builder.EntityRecognizer.findEntity(args.entities, 'fullname');
+        var accountNumber = builder.EntityRecognizer.findEntity(args.entities, 'accountNumber');
+
+        console.log('ENTITIES', firstName, lastName, fullName, accountNumber);
+
+        var reset = {
+            firstName: firstName ? firstName.entity : null,
+            lastName: lastName ? lastName.entity : null,
+            fullName: fullName ? fullName.entity : null,
+            accountNumber: accountNumber ? accountNumber.entity : null
+        }
+        session.dialogData.reset = reset;
+
+        // get the users information 'verify user'
+
+        if (!reset.firstName) {
+            builder.Prompts.text(session, "What is your first name?");
+        } else {
+            next();
+        }
     }
    
 ]);
