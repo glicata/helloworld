@@ -21,9 +21,9 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] });
 bot.dialog('/', intents);
 
 intents.matches('forgot password', [
-    bot.dialog('/', function (session) {
+   
         session.send("Hello RightAnswers");
-    });
+   
 ]);
 
 intents.onDefault(builder.DialogAction.send("I am sorry. I didn't understand you."));
