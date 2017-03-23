@@ -181,7 +181,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('Hello First name %(name). and Last name  %(lastname)!', session.userData.profile);
+        session.send('Hello %(name)s! I love %(lastname)s!', session.userData.profile);
     }
 ]);
 bot.dialog('/ensureProfile', [
