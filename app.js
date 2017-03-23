@@ -187,6 +187,15 @@ bot.dialog('/delete', (session) => {
     .triggerAction({
         matches: /delete all/i,
     });
-
-
+// this is a function that will let the end user know the bot is 'thinking' or 'typing'
+bot.dialog('/countItems', function (session, args) {
+    session.sendTyping();
+    lookupItemsAsync(args, function (err, items) {
+        if (!err) {
+          //  session.send("%d items found", items.length);
+        } else {
+            session.error(err);
+        }
+    });
+});
 
