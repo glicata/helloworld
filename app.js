@@ -20,11 +20,7 @@ var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 bot.dialog('/', intents);
 
-intnets.matches('forgot password'.[
-    bot.dialog('/', function (session) {
-        session.send("Did you forget your password?");
-    });
-]);
+
 
 /*
 // Create bot dialogs
