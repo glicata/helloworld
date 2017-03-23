@@ -141,33 +141,31 @@ bot.dialog('/askLname', [
 */
 // the above sesion dialog can be wiped out by using this delete session dialog.
 
-bot.dialog('/createAlarm', [
-    function (session) {
-        session.dialogData.alarm = {};
-        builder.Prompts.text(session, "What would you like to name this alarm?");
+var salesData = {
+    "west": {
+        units: 200,
+        total: "$6,000"
     },
-    function (session, results, next) {
-        if (results.response) {
-            session.dialogData.name = results.response;
-            builder.Prompts.time(session, "What time would you like to set an alarm for?");
-        } else {
-            next();
-        }
+    "central": {
+        units: 100,
+        total: "$3,000"
+    },
+    "east": {
+        units: 300,
+        total: "$9,000"
+    }
+};
+
+bot.dialog('/', [
+    function (session) {
+        builder.Prompts.choice(session, "Which region would you like sales for?", salesData);
     },
     function (session, results) {
         if (results.response) {
-            session.dialogData.time = builder.EntityRecognizer.resolveTime([results.response]);
-        }
-
-        // Return alarm to caller  
-        if (session.dialogData.name && session.dialogData.time) {
-            session.endDialogWithResult({
-                response: { name: session.dialogData.name, time: session.dialogData.time }
-            });
+            var region = salesData[results.response.entity];
+            session.send("We sold %(units)d units for a total of %(total)s.", region);
         } else {
-            session.endDialogWithResult({
-                resumed: builder.ResumeReason.notCompleted
-            });
+            session.send("ok");
         }
     }
 ]);
