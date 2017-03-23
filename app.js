@@ -181,7 +181,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('Hello %(name)s %(middleinitial)s. %(lastname)s!', session.userData.profile);
+        session.send('Hello %(name)s %(middleinitial)s . %(lastname)s!', session.userData.profile);
     }
 ]);
 bot.dialog('/ensureProfile', [
@@ -208,16 +208,17 @@ bot.dialog('/ensureProfile', [
             session.dialogData.profile.lastname = results.response;
         }
         session.endDialogWithResult({ response: session.dialogData.profile });
-    },
+    }
+    /*
     function (session, results, next) {
         if (results.response) {
             session.dialogData.profile.name = results.response;
         }
         if (!session.dialogData.profile.middleinitial) {
             builder.Prompts.text(session, "What is your middle initial?");
-        }// else {
-         //   next();
-        //}
+        } else {
+            next();
+        }
     },
     function (session, results) {
         if (results.response) {
@@ -225,7 +226,7 @@ bot.dialog('/ensureProfile', [
         }
         session.endDialogWithResult({ response: session.dialogData.profile });
     }
-    
+    */
 ]);
 
 
